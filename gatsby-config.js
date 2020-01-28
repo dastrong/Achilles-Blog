@@ -73,5 +73,16 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          removeViewBox: true,
+          cleanupIDs: true,
+        },
+      },
+    },
   ],
 };
