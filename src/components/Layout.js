@@ -9,7 +9,7 @@ import { withPrefix } from 'gatsby';
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -49,9 +49,12 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <div className="main-container">
+        <div className="background-svg" />
+        <div className="content">{children}</div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
