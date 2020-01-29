@@ -146,10 +146,10 @@ body
 
 .index-container 
   .imgs
-    border: 1px solid white
-    width: 60%
-    height: 400px
-    margin-left: auto
+    display: flex
+    height: 330px
+    justify-content: flex-end
+    align-items: center
 
     div 
       border: 5px solid $walt-gray-dark
@@ -157,6 +157,13 @@ body
       width: 200px
       height: 250px
       display: inline-block
+      margin: 0 25px
+
+    div:first-child 
+      align-self: flex-start
+
+    div:last-child 
+      align-self: flex-end
     
   .headings
     font-size: 1rem
