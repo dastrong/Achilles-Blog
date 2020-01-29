@@ -18,6 +18,7 @@ body
   font-family: $font-primary
 
 .navbar
+  font-family: $font-secondary
   position: absolute
   top: 0
   left: 0
@@ -60,6 +61,7 @@ body
   
   .content
     padding-top: 58px
+    min-height: 100vh
 
 @media screen and (min-width: $tablet)
   .navbar
@@ -93,6 +95,7 @@ body
   
   .content
     padding-top: 138px
+    min-height: 100vh
 
 @media screen and (min-width: $desktop)
   .navbar   
@@ -110,6 +113,8 @@ body
   min-height: 100vh
   width: 100%
   background-color: rgba($walt-yellow, 0.6)
+  position: relative
+  z-index: 0
 
   .background-svg 
     background-image: url('../img/BG-2.svg')
@@ -120,9 +125,10 @@ body
     width: 100%
     position: absolute
     bottom: 0
+    z-index: -1
 
   .content
-    margin-top: 
+    
 
 .article 
   margin: 0 auto
@@ -137,6 +143,27 @@ body
 @media screen and (min-width: is-size-1-fullhd)
   .background-svg
     background-size: contain
+
+.index-container 
+  .imgs
+    border: 1px solid white
+    width: 60%
+    height: 400px
+    margin-left: auto
+
+    div 
+      border: 5px solid $walt-gray-dark
+      border-radius: 30px
+      width: 200px
+      height: 250px
+      display: inline-block
+    
+  .headings
+    font-size: 1rem
+    h1
+      font-size: 5em
+    p
+      font-size: 1.8em
 
 // // Config vars
 // // Kaldi logo brand color: #FD461E
