@@ -13,8 +13,10 @@ export const IndexPageTemplate = ({
   description,
 }) => (
   <>
-    <div className="background"></div>
-    <div className="article">article</div>
+    <div className="hero">
+      <div className="background"></div>
+    </div>
+    {/* <div className="article">article</div> */}
   </>
   // <div>
   //   <div

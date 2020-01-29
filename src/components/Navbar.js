@@ -2,42 +2,36 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
 export default function Navbar() {
-  const [isActive, setIsActive] = useState(false);
-  const [navBarActiveClass, setNavBarActiveClass] = useState('');
+  const [activeClass, setActiveClass] = useState('');
 
-  const toggleHamburger = () => {
-    setIsActive(state => !state);
-    setNavBarActiveClass(cxState => (!cxState ? 'is-active' : ''));
-  };
+  const toggleMenu = () => setActiveClass(state => (!state ? 'is-active' : ''));
 
   return (
-    <nav
-      className="navbar is-transparent"
-      role="navigation"
-      aria-label="main-navigation"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item" title="Logo">
+    <nav className="navbar" role="navigation" aria-label="main-navigation">
+      <div className="container is-fullhd">
+        <div className="navbar-brand ">
+          <Link to="/" className="navbar-item walter-logo">
             Walter Barrios
           </Link>
-          {/* Hamburger menu */}
+
           <div
-            className={`navbar-burger burger ${navBarActiveClass}`}
+            className={`navbar-burger burger ${activeClass}`}
             data-target="navMenu"
-            onClick={toggleHamburger}
+            onClick={toggleMenu}
           >
             <span />
             <span />
             <span />
           </div>
         </div>
-        <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          <div className="navbar-start has-text-centered">
-            <Link className="navbar-item" to="/about">
+
+        <div className="navbar-end">
+          <div id="navMenu" className={`navbar-menu ${activeClass}`}>
+            <Link to="/about" className="navbar-item">
               About Me
             </Link>
-            <Link className="navbar-item" to="/blog">
+            {activeClass === 'is-active' && <hr className="navbar-divider" />}
+            <Link to="/blog" className="navbar-item">
               Blog
             </Link>
           </div>
