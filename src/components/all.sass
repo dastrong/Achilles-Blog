@@ -5,18 +5,29 @@ $walt-black: #080808
 $walt-gray-light: #E4E4E4
 $walt-gray-dark: #ACACAC
 $walt-yellow: #FFE103
+
 $font-primary: 'Delius', cursive  
 $font-secondary: 'Delius Swash Caps', cursive  
 
+$screen-xs: 320px
+$screen-sm: 475px
+$screen-md: 769px
+$screen-lg: 1024px
+$screen-xl: 1440px
+
+
 // Bulma vars
 $navbar-background-color: rgba(255,255,255,0)
-$navbar-breakpoint: $tablet
+$navbar-breakpoint: $screen-md
 
 @import "~bulma"
 
 body 
   font-family: $font-primary
 
+// ================
+// =====Navbar=====
+// ================
 .navbar
   font-family: $font-secondary
   position: absolute
@@ -24,7 +35,7 @@ body
   left: 0
   width: 100%
 
-@media screen and (max-width: $tablet)
+@media screen and (max-width: $screen-md)
   .navbar
     padding: 0
 
@@ -63,14 +74,14 @@ body
     padding-top: 58px
     min-height: 100vh
 
-@media screen and (min-width: $tablet)
+@media screen and (min-width: $screen-md)
   .navbar
     padding: 10px 10px 0
 
     > .container .navbar-brand
-      margin-left: 10px
+      margin-left: 20px
     > .container .navbar-menu
-      margin-right: 10px
+      margin-right: 20px
   
     a.navbar-item
       color: $walt-black
@@ -97,7 +108,7 @@ body
     padding-top: 138px
     min-height: 100vh
 
-@media screen and (min-width: $desktop)
+@media screen and (min-width: $screen-lg)
   .navbar   
     .walter-logo
       line-height: 5rem
@@ -109,6 +120,10 @@ body
   .content
     padding-top: 170px
 
+
+// ================
+// =Main Container=
+// ================
 .main-container
   min-height: 100vh
   width: 100%
@@ -126,187 +141,115 @@ body
     position: absolute
     bottom: 0
     z-index: -1
+   
+@media screen and (min-width: 1200px)
+  .main-container
+    .background-svg
+      background-size: contain
 
-  .content
-    
-
-.article 
+// ================
+// ===Index Page===
+// ================
+.index-container
+  max-width: 1344px
+  position: relative
   margin: 0 auto
-  width: 800px
-  border-radius: 20px
-  background-color: #e3e3e3
-  position: absolute
-  top: 100px
-  height: 600px
-
-
-@media screen and (min-width: is-size-1-fullhd)
-  .background-svg
-    background-size: contain
-
-.index-container 
   .imgs
+    margin: 0 auto
+    min-width: 300px
     display: flex
-    height: 330px
-    justify-content: flex-end
-    align-items: center
-
-    div 
+    align-items: center    
+    div
+      box-sizing: border-box
       border: 5px solid $walt-gray-dark
       border-radius: 30px
-      width: 200px
-      height: 250px
       display: inline-block
-      margin: 0 25px
-
-    div:first-child 
-      align-self: flex-start
-
-    div:last-child 
-      align-self: flex-end
-    
+      margin: 0 10px
   .headings
-    font-size: 1rem
+    padding: 0 10px
     h1
       font-size: 5em
+      margin-bottom: 20px
+      text-shadow: -1px -1px 2px #8e8e8e, 1px 1px 2px #e9de92
     p
-      font-size: 1.8em
+      font-size: 2.2em
+      text-shadow: 0px 0px 9px #ffffff
 
-// // Config vars
-// // Kaldi logo brand color: #FD461E
-// $kaldi-red: #D64000
-// $kaldi-red-invert: #fff
+@media screen and (max-width: 375px)
+  .index-container 
+    .imgs
+      margin: 5px 0 
+      div 
+        margin: 15px 0
+        width: 200px
+        height: 250px
+      div:first-child
+        display: none
+      div:last-child
+        display: none
+    .headings
+      font-size: 0.5rem
 
-// $primary: $kaldi-red
-// $body-color: #333
-// $primary-invert: $kaldi-red-invert
-// $black: #2b2523
+      
+@media screen and (max-width: $screen-md)
+  .index-container 
+    min-height: calc(100vh - 58px)
+    display: flex
+    flex-direction: column
+    justify-content: center
 
-// .navbar .navbar-menu
-//   box-shadow: none !important
+    .imgs
+      height: 300px
+      justify-content: center
+      margin: 40px 0
+      flex-wrap: wrap-reverse
+      div
+        margin: 15px
+        width: 150px
+        height: 175px
+    .headings
+      text-align: center
+      font-size: 0.75rem
+      margin: 0 auto
 
-// .content .taglist
-//   list-style: none
-//   margin-bottom: 0
-//   margin-left: 0
-//   margin-right: 1.5rem
-//   margin-top: 1.5rem
-//   display: flex
-//   flex-wrap: wrap
-//   justify-content: left
-//   align-items: center
-//   li
-//     padding: 0 2rem 1rem 0
-//     margin-bottom: 1.5rem
-//     margin-top: 0
+@media screen and (min-width: $screen-md)
+  .index-container 
+    min-height: calc(100vh - 138px)
+    .imgs
+      height: 350px
+      justify-content: flex-end
+      align-items: center
+      div 
+        margin: 20px
+        width: 160px
+        height: 220px
+      div:first-child 
+        align-self: flex-start
+      div:last-child 
+        align-self: flex-end      
+    .headings
+      position: absolute
+      bottom: 0
+      margin: 0 0 40px 40px
+      font-size: 1rem
 
-// // Helper Classes
-// .full-width-image-container
-//   width: 100vw
-//   height: 400px
-//   position: relative
-//   left: 50%
-//   right: 50%
-//   margin: 2em -50vw
-//   background-size: cover
-//   background-position: bottom
-//   display: flex
-//   justify-content: center
-//   align-items: center
+@media screen and (min-width: $screen-lg)
+  .index-container 
+    min-height: calc(100vh - 170px)
+    .imgs
+      height: 425px
+      div
+        margin: 35px
+        width: 200px
+        height: 250px
 
-// .full-width-image
-//   width: 100vw
-//   height: 400px
-//   background-size: cover
-//   background-position: bottom
-//   display: flex
-//   justify-content: center
-//   align-items: center
-
-// .btn
-//   display: inline-block
-//   padding: 12px 16px 10px
-//   font-size: 18px
-//   font-size: 1rem
-//   line-height: 1.25
-//   background-color: #fff
-//   border-radius: .25rem
-//   text-decoration: none
-//   font-weight: 700
-//   color: #CC3700
-//   text-align: center
-//   -webkit-box-shadow: inset 0 0 0 2px #CC3700
-//   box-shadow: inset 0 0 0 2px #f40
-//   -webkit-transition: all .15s ease
-//   transition: all .15s ease
-
-// .margin-top-0
-//   margin-top: 0 !important
-
-// .navbar-item .icon
-//   color: $primary
-// // Override for use of svg's from https://simpleicons.org/
-// .icon svg
-//   width: 1.5rem
-//   height: 1.5rem
-//   fill: currentColor
-// .navbar-brand .navbar-item.logo
-//   padding: 0 1rem
-// footer.footer
-//   padding: 3rem 0rem 0rem
-//   background-color: transparent
-
-// //Menu overrides
-// $menu-item-color: $white-ter
-// $menu-item-hover-color: $black !important
-// $menu-item-hover-background-color: $black
-// $menu-item-active-color: $kaldi-red-invert
-// $menu-item-active-background-color:	$kaldi-red-invert
-// $menu-list-border-left: 1px solid $kaldi-red-invert
-// $menu-label-color: $white-ter
-
-
-// .menu-label
-//   font-size: 1em !important
-//   text-align: left
-// .menu-list
-//   list-style: none !important
-//   text-align: left
-// .social
-//   padding: 2em
-// .social a
-//   padding: .5em .5em .3em .5em
-//   border-radius: 1em
-//   background-color: $white-ter
-//   margin: .5em
-//   width: 1em
-//   height: 1em
-//   vertical-align: middle
-//   display: inline
-
-// // blog roll
-// .blog-list-item.is-featured
-//   background-color: #d6400033;
-// .blog-list-item header
-//   display: flex;
-//   margin-bottom: 1em;
-// .blog-list-item .featured-thumbnail
-//   flex-basis: 35%;
-//   margin: 0 1.5em 0 0;
-
-
-// @import "~bulma"
-
-
-// // responsiveness
-//   +tablet-only
-//   .blog-list-item .featured-thumbnail
-//     flex-basis: 50%;
-
-//     +mobile
-//   .blog-list-item header
-//     display: block
-//   .blog-list-item .featured-thumbnail
-//     text-align: center;
-//     max-width: 70%;
-//     margin: 0 0 1em;
+@media screen and (min-width: $screen-xl)
+  .index-container 
+    .imgs
+      height: 500px
+      div
+        margin: 40px
+        width: 250px
+        height: 300px
+    .headings
+      font-size: 1.25rem
