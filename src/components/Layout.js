@@ -50,8 +50,10 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       <div className="main-container">
-        <div className="background-svg" />
-        <div className="content">{children}</div>
+        <div className="custom-bg-svg">
+          <div className="bg-svg" />
+        </div>
+        <div className="page-content">{children}</div>
       </div>
       <Footer />
     </>
