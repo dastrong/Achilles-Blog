@@ -61,10 +61,12 @@ export const IndexPageTemplate = (props: TemplateProps) => {
     <Layout>
       <section className="index-cover">
         <div className="imgs">
-          {Object.keys(imgs).map((file: 'image1' | 'image2' | 'image3') => {
-            const img = imgs[file].childImageSharp.fluid;
-            const name = img.originalName.slice(0, img.originalName.length - 5);
-            return <Img key={name} fluid={img} alt={name} />;
+          {imgs.map(img => {
+            const isPreviewingCMS = !img.childImageSharp;
+            if (isPreviewingCMS) return img;
+            const { originalName, ...fluid } = img.childImageSharp.fluid;
+            const name = originalName.slice(0, originalName.length - 5);
+            return <Img key={name} fluid={fluid} alt={name} />;
           })}
         </div>
         <div className="headings">
@@ -128,8 +130,12 @@ export default function IndexPage({ data }: Props) {
     heading,
     injuryinfo,
     subheading,
-    ...imgs
+    ...images
   } = info.frontmatter;
+
+  const imgs = Object.keys(images).map(
+    (file: 'image1' | 'image2' | 'image3') => imgs[file]
+  );
 
   return (
     <IndexPageTemplate
