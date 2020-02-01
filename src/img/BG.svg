@@ -1,12 +1,12 @@
-<svg width="1391" height="660" viewBox="0 0 1391 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1390" height="806" viewBox="0 0 1390 806" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_i)">
-<path d="M1389.64 164.3V659.5C1389.64 659.5 889.579 659.5 657.644 659.5C425.709 659.5 0 659.5 0 659.5V164.5C0 164.5 309.574 180.931 479.594 44.8004C649.614 -91.3304 717.426 133.301 840.273 58.8007C963.12 -15.6993 1052.55 8.80008 1129.7 81.3002C1206.85 153.8 1389.64 164.3 1389.64 164.3Z" fill="#E4E4E4"/>
+<path d="M1390 192.95V805.95C1390 805.95 889.807 805.95 657.813 805.95C425.818 805.95 0 805.95 0 805.95V192.95C0 192.95 313.5 192.95 432.5 73.9502C551.5 -45.0499 616.5 70.4501 716.5 57.4502C816.5 44.4502 946.5 -65.0498 1069 57.4502C1191.5 179.95 1390 192.95 1390 192.95Z" fill="#E4E4E4"/>
 </g>
 <g filter="url(#filter1_d)">
-<path d="M0.119141 655.801H1390.12V424C1390.12 424 1269 583.5 745.5 395.5C222 207.5 59.907 402.303 0.119141 424V655.801Z" fill="#ACACAC"/>
+<path d="M0 805.95H1390V543.779C1390 543.779 982 668 737 543.779C492 419.558 0 543.779 0 543.779V805.95Z" fill="#ACACAC"/>
 </g>
 <defs>
-<filter id="filter0_i" x="0" y="0" width="1389.64" height="659.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_i" x="0" y="0" width="1390" height="805.95" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
@@ -15,7 +15,7 @@
 <feColorMatrix type="matrix" values="0 0 0 0 0.929167 0 0 0 0 0.818552 0 0 0 0 0 0 0 0 0.18 0"/>
 <feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
 </filter>
-<filter id="filter1_d" x="0.119141" y="309.401" width="1390" height="346.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_d" x="0" y="483.57" width="1390" height="322.38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
 <feOffset dy="-5"/>
