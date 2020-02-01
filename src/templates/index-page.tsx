@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Img, { FluidObject } from 'gatsby-image';
+import useHelmet from '../components/useHelmet';
 
 type Image = {
   childImageSharp: {
@@ -48,25 +49,33 @@ type TemplateProps = {
   subheading: string;
   imgs: any;
   posts?: any;
+  helmet?: JSX.Element;
 };
 
-export const IndexPageTemplate = (props: TemplateProps) => {
-  const { aboutme, heading, injuryinfo, subheading, imgs, posts } = props;
-
+export const IndexPageTemplate = ({
+  aboutme,
+  heading,
+  injuryinfo,
+  subheading,
+  imgs,
+  posts,
+  helmet,
+}: TemplateProps) => {
   const injuryDate = new Date('12/1/2019').getTime();
-
-  console.log(imgs);
 
   return (
     <Layout>
+      {helmet || ''}
       <section className="index-cover">
         <div className="imgs">
           {Object.keys(imgs).map((img: 'image1' | 'image2' | 'image3') => {
             const isPreviewingCMS = !imgs[img].childImageSharp;
-            if (isPreviewingCMS) return img;
+            if (isPreviewingCMS) return imgs[img];
             const { originalName, ...fluid } = imgs[img].childImageSharp.fluid;
             const name = originalName.slice(0, originalName.length - 5);
-            return <Img key={name} fluid={fluid} alt={name} />;
+            return (
+              <Img key={name} fluid={fluid} alt={name} className="walter-img" />
+            );
           })}
         </div>
         <div className="headings">
@@ -132,6 +141,7 @@ export default function IndexPage({ data }: Props) {
     subheading,
     ...imgs
   } = info.frontmatter;
+  const helmet = useHelmet();
 
   return (
     <IndexPageTemplate
@@ -141,6 +151,7 @@ export default function IndexPage({ data }: Props) {
       subheading={subheading}
       imgs={imgs}
       posts={posts}
+      helmet={helmet}
     />
   );
 }
