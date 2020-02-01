@@ -35,9 +35,9 @@ collections:
   - name: 'pages'
     label: 'Pages'
     files:
-        label: 'Landing Page'
+      - label: 'Landing Page'
         name: 'index'
-      - file: 'src/pages/index.md'
+        file: 'src/pages/index.md'
         fields:
           - {
               label: 'Template Key',
