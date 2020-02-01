@@ -134,7 +134,7 @@ export default function IndexPage({ data }: Props) {
   } = info.frontmatter;
 
   const imgs = Object.keys(images).map(
-    (file: 'image1' | 'image2' | 'image3') => imgs[file]
+    (file: 'image1' | 'image2' | 'image3') => images[file]
   );
 
   return (
