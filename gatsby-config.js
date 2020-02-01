@@ -5,6 +5,7 @@ module.exports = {
       'A journey from tearing an achilles to running and jumping again',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -83,9 +84,6 @@ module.exports = {
           cleanupIDs: true,
         },
       },
-    },
-    {
-      resolve: `gatsby-plugin-typescript`,
     },
   ],
 };
