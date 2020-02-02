@@ -11,7 +11,7 @@ type SocialTypes = {
 
 const SocialLink = ({ img, name, url }: SocialTypes) => (
   <a href={url} target="_blank" rel="noopener noreferrer">
-    <img src={img} alt={name} style={{ width: '1em', height: '1em' }} />
+    <img src={img} alt={name} />
   </a>
 );
 
@@ -19,17 +19,19 @@ const Footer = () => (
   <footer className="footer">
     <Link to="/">Home</Link>
 
-    <SocialLink
-      img={facebook}
-      name="facebook"
-      url="https://www.instagram.com/fwarrior.135"
-    />
+    <div className="social-links">
+      <SocialLink
+        img={facebook}
+        name="facebook"
+        url="https://www.instagram.com/fwarrior.135"
+      />
 
-    <SocialLink
-      img={instagram}
-      name="instagram"
-      url="https://www.facebook.com/walter.barrios"
-    />
+      <SocialLink
+        img={instagram}
+        name="instagram"
+        url="https://www.facebook.com/walter.barrios"
+      />
+    </div>
 
     <p>
       Built by{' '}

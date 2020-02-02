@@ -73,9 +73,7 @@ export const IndexPageTemplate = ({
             if (isPreviewingCMS) return imgs[img];
             const { originalName, ...fluid } = imgs[img].childImageSharp.fluid;
             const name = originalName.slice(0, originalName.length - 5);
-            return (
-              <Img key={name} fluid={fluid} alt={name} className="walter-img" />
-            );
+            return <Img key={name} fluid={fluid} alt={name} />;
           })}
         </div>
         <div className="headings">
@@ -84,12 +82,12 @@ export const IndexPageTemplate = ({
         </div>
       </section>
 
-      <section className="index-content" style={{ height: '700px' }}>
-        <h1
-          style={{ textAlign: 'center', fontSize: '3rem', marginTop: '40px' }}
-        >
+      <section className="index-content">
+        <h2 id="posts" className="custom-heading blog-heading">
           Blog Posts
-        </h1>
+        </h2>
+        <p className="custom-heading blog-subheading">{injuryinfo}</p>
+
         <div className="index-posts">
           {posts &&
             posts.edges.map(post => {
@@ -110,22 +108,10 @@ export const IndexPageTemplate = ({
               );
             })}
         </div>
-        <div className="about-container">
-          <p>{aboutme}</p>
-          <hr />
-          <p>{injuryinfo}</p>
-          <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-            eius quo ad dolor quaerat corporis, voluptatem ratione quasi quae
-            cumque provident nihil? Magni labore maxime, illo fugiat maiores
-            deleniti nam.
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
-            aspernatur reiciendis quae quam ratione esse eum repellendus eos.
-            Laboriosam non soluta nulla.
-          </p>
+
+        <div id="about" className="about-container">
+          <h2 id="about">About Me</h2>
+          {aboutme}
         </div>
       </section>
     </Layout>

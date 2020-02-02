@@ -24,6 +24,8 @@ $navbar-breakpoint: $screen-md
 
 body 
   font-family: $font-primary
+  background-color: $walt-gray-dark
+  color: #313131
 
 // ================
 // =====Navbar=====
@@ -164,10 +166,48 @@ body
       text-shadow: -1px -1px 2px #8e8e8e, 1px 1px 2px #e9de92
     p
       font-size: 2.2em
+      color: #313131
       text-shadow: 0px 0px 9px #ffffff
 
 .index-content
   background-color: $walt-gray-dark
+  padding: 40px 0 50px
+  .custom-heading
+    text-align: center
+    width: 90%
+    min-width: 300px
+    max-width: 700px
+    margin: 0 auto
+  .blog-heading
+    text-shadow: -1px -1px 3px #8e8e8e, 1px 1px 2px #e9de92
+    font-size: 3.5rem
+  .blog-subheading
+    text-shadow: 0px 0px 9px #ffffff
+    font-size: 1.1rem
+    font-style: italic
+    color: #313131
+
+  .about-container 
+    text-align: center
+    background-color: #ecebdd
+    width: 90%
+    min-width: 300px
+    max-width: 700px
+    margin: 0px auto
+    border-radius: 30px
+    color: black
+    padding: 30px
+    line-height: 2em
+    box-shadow: 0px 1px 3px 0px #acacac
+    margin-bottom: -80px
+    h2
+      font-size: 2rem
+      margin-bottom: 10px
+    
+
+
+
+
 
 @media screen and (max-width: $screen-md)
   .index-cover 
@@ -256,32 +296,27 @@ body
   flex-direction: column
   justify-content: center
   align-items: center
-  padding: 30px 20px
-
-
-// ================
-// ==== About =====
-// ================
-.about-container
-  background-color: #ecebdd
-  width: 90%
-  min-width: 300px
-  max-width: 800px
-  margin: 0px auto
-  border-radius: 30px
-  color: black
-  padding: 30px
-  position: absolute
-  left: calc(50vw - 400px)
-  bottom: -100px
-  display: none
-
+  padding: 50px 20px 20px
+  a
+    color: inherit
+  .social-links 
+    margin: 5px 0
+    display: flex
+    a
+      height: 28px
+      width: 28px
+    img
+      margin: 5px
+      height: 1.1em
+      width: 1.1em
+    
 // ================
 // ==== Posts =====
 // ================
 .index-posts 
   max-width: 1344px
-  margin: 0 auto
+  margin: 10px auto
+  padding: 20px
   display: flex
   justify-content: center
   flex-direction: row

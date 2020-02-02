@@ -27,13 +27,13 @@ export default function Navbar() {
 
         <div className="navbar-end">
           <div id="navMenu" className={`navbar-menu ${activeClass}`}>
-            <Link to="/about" className="navbar-item">
+            <a href="#about" className="navbar-item">
               About Me
-            </Link>
+            </a>
             {activeClass === 'is-active' && <hr className="navbar-divider" />}
-            <Link to="/blog" className="navbar-item">
+            <a href="#posts" className="navbar-item">
               Blog
-            </Link>
+            </a>
           </div>
         </div>
       </div>
