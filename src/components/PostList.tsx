@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function PostList({ allPosts }: Props) {
-  const [viewCount, setViewCount] = useState(1);
+  const [viewCount, setViewCount] = useState(4);
 
   const viewMore = () => setViewCount(state => state + 4);
 
