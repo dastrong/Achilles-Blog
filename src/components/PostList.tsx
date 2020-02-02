@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { navigate, Link } from 'gatsby';
+import Button from './Button';
 
 type Props = {
   allPosts: {
@@ -48,9 +49,7 @@ export default function PostList({ allPosts }: Props) {
       </div>
 
       {allPosts.length > viewCount && (
-        <button className="postlist-viewmore" onClick={viewMore}>
-          View More
-        </button>
+        <Button handleClick={viewMore} content="View More" />
       )}
     </div>
   );
