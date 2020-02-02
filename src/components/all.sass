@@ -286,42 +286,55 @@ body
     .headings
       font-size: 1.25rem
 
-// ================
-// ==== Footer ====
-// ================
-.footer
-  background-color: $walt-yellow
-  color: $walt-black
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  padding: 50px 20px 20px
-  a
-    color: inherit
-  .social-links 
-    margin: 5px 0
-    display: flex
-    a
-      height: 28px
-      width: 28px
-    img
-      margin: 5px
-      height: 1.1em
-      width: 1.1em
-    
+ 
 // ================
 // ==== Posts =====
 // ================
-.index-posts 
-  max-width: 1344px
-  margin: 10px auto
-  padding: 20px
+.postlist-container 
   display: flex
-  justify-content: center
-  flex-direction: row
+  flex-direction: column
   align-items: center
-  flex-wrap: wrap
+  padding: 20px
+  .posts-container
+    max-width: 1344px
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+  .postlist-viewmore
+    outline: none
+    border: none
+    margin: 10px auto
+    height: 50px
+    padding: 15px 20px
+    border-radius: 30px
+    font-size: 1em
+    line-height: 100%
+    background-color: #f7eeab
+    box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457
+    cursor: pointer
+  .postlist-daypicker
+    font-size: 1.4rem
+    font-variant: all-petite-caps
+  .postlist-shortcuts
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    margin: 0px auto 10px
+    a
+      box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457
+      background-color: #f7eeab
+      height: 40px
+      width: 40px
+      border-radius: 20px
+      color: inherit
+      padding: 10px
+      margin: 5px
+      line-height: 20px
+      text-align: center
   .post
     &__container
       cursor: pointer
@@ -385,27 +398,58 @@ body
       overflow: hidden
 
 @media screen and (min-width: $screen-sm) and (max-width: $screen-md)
-  .index-posts 
-    flex-direction: column
-    .post
-      &__container
-        font-size: 0.9rem
-        width: 95%
-        max-width: 600px
-        flex-direction: row
-        margin: 15px 0
-      &__day
-        height: 85px
-        width: 85px
-        border-radius: 50%
-        &::after
-          height: 10px
-          width: 22px
-          transform-origin: left
-          transform: translateX(52px)
-      &__content
-        min-width: 0
+  .postlist-container
+    padding: 20px 0
+    .posts-container 
+      flex-direction: column
+      .post
+        &__container
+          font-size: 0.9rem
+          width: 95%
+          max-width: 600px
+          flex-direction: row
+          margin: 15px 0
+        &__day
+          height: 85px
+          width: 85px
+          border-radius: 50%
+          &::after
+            height: 10px
+            width: 22px
+            transform-origin: left
+            transform: translateX(52px)
+        &__content
+          min-width: 0
 
+
+// ================
+// ==== Footer ====
+// ================
+.footer
+  background-color: $walt-yellow
+  color: $walt-black
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 50px 20px 20px
+  a
+    color: inherit
+  .social-links 
+    margin: 5px 0
+    display: flex
+    a
+      height: 28px
+      width: 28px
+    img
+      margin: 5px
+      height: 1.1em
+      width: 1.1em
+
+
+// ================
+// = ToTopButton ==
+// ================
 .totopbutton
   position: fixed
   bottom: 5px

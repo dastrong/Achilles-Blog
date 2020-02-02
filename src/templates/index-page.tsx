@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
 import Img, { FluidObject } from 'gatsby-image';
+import Layout from '../components/Layout';
+import PostList from '../components/PostList';
 import useHelmet from '../components/useHelmet';
 
 type Image = {
@@ -35,6 +36,9 @@ type Props = {
               description: string;
               title: string;
             };
+            fields: {
+              slug: string;
+            };
           };
         }
       ];
@@ -62,6 +66,20 @@ export const IndexPageTemplate = ({
   helmet,
 }: TemplateProps) => {
   const injuryDate = new Date('12/1/2019').getTime();
+  const allPosts =
+    posts &&
+    posts.edges.map(post => {
+      const dateNow = new Date(post.node.frontmatter.date);
+      const daysSince = Math.floor((dateNow.getTime() - injuryDate) / 86400000);
+      return {
+        daysSince,
+        dateString: dateNow.toDateString(),
+        description: post.node.frontmatter.description,
+        id: post.node.id,
+        path: post.node.fields.slug,
+        title: post.node.frontmatter.title,
+      };
+    });
 
   return (
     <Layout>
@@ -88,26 +106,7 @@ export const IndexPageTemplate = ({
         </h2>
         <p className="custom-heading blog-subheading">{injuryinfo}</p>
 
-        <div className="index-posts">
-          {posts &&
-            posts.edges.map(post => {
-              const { frontmatter, id } = post.node;
-              const { title, date, description } = frontmatter;
-              const daysSinceInjury = Math.floor(
-                (new Date(date).getTime() - injuryDate) / 86400000 // 1 day in ms
-              );
-              return (
-                <div className="post__container" key={id}>
-                  <div className="post__day">{`Day ${daysSinceInjury}`}</div>
-                  <div className="post__content">
-                    <h2 className="post__title">{title}</h2>
-                    <span className="post__date">{date}</span>
-                    <p className="post__description">{description}</p>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
+        {posts && <PostList allPosts={allPosts} />}
 
         <div id="about" className="about-container">
           <h2 id="about">About Me</h2>
@@ -187,6 +186,9 @@ export const pageQuery = graphql`
             date
             description
             title
+          }
+          fields {
+            slug
           }
         }
       }
