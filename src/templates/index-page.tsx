@@ -4,6 +4,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import useHelmet from '../components/useHelmet';
+import { getDaysSinceInjury, getInjuryDate } from '../utils/dates';
 
 type Image = {
   childImageSharp: {
@@ -65,12 +66,12 @@ export const IndexPageTemplate = ({
   posts,
   helmet,
 }: TemplateProps) => {
-  const injuryDate = new Date('12/1/2019').getTime();
+  const injuryDate = getInjuryDate();
   const allPosts =
     posts &&
     posts.edges.map(post => {
       const dateNow = new Date(post.node.frontmatter.date);
-      const daysSince = Math.floor((dateNow.getTime() - injuryDate) / 86400000);
+      const daysSince = getDaysSinceInjury(injuryDate, dateNow);
       return {
         daysSince,
         dateString: dateNow.toDateString(),
