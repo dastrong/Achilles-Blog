@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import ToTopButton from './ToTopButton';
 import './all.sass';
 
 type Props = {
@@ -17,6 +18,7 @@ const Layout = ({ children }: Props) => (
       <div className="page-content">{children}</div>
     </div>
     <Footer />
+    <ToTopButton />
   </>
 );
 
