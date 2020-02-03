@@ -29,9 +29,9 @@ export default function useHelmet(titleArg?: string, descriptionArg?: string) {
       <link rel="apple-touch-icon" sizes="180x180" href={img} />
       <link rel="icon" type="image/png" href={img} sizes="32x32" />
       <link rel="icon" type="image/png" href={img} sizes="16x16" />
-      <link rel="mask-icon" href={img} color="#ffed68" />
+      <link rel="mask-icon" href={img} color="#fff3a2" />
 
-      <meta name="theme-color" content="#ffed68" />
+      <meta name="theme-color" content="#fff3a2" />
       <meta property="og:type" content="blog" />
       <meta property="og:title" content={title} />
       <meta property="og:url" content="/" />
