@@ -27,13 +27,13 @@ export default function Navbar() {
 
         <div className="navbar-end">
           <div id="navMenu" className={`navbar-menu ${activeClass}`}>
-            <a href="#about" className="navbar-item">
+            <Link to="/" state={{ target: 'about' }} className="navbar-item">
               About Me
-            </a>
+            </Link>
             {activeClass === 'is-active' && <hr className="navbar-divider" />}
-            <a href="#posts" className="navbar-item">
+            <Link to="/blog" className="navbar-item">
               Blog
-            </a>
+            </Link>
           </div>
         </div>
       </div>

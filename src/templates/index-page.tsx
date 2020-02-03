@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
+
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import useHelmet from '../components/useHelmet';
@@ -10,39 +11,6 @@ type Image = {
   childImageSharp: {
     fluid: FluidObject & {
       originalName: string;
-    };
-  };
-};
-
-type Props = {
-  data: {
-    info: {
-      frontmatter: {
-        heading: string;
-        subheading: string;
-        aboutme: string;
-        injuryinfo: string;
-        image1: Image;
-        image2: Image;
-        image3: Image;
-      };
-    };
-    posts: {
-      edges: [
-        {
-          node: {
-            id: string;
-            frontmatter: {
-              date: string;
-              description: string;
-              title: string;
-            };
-            fields: {
-              slug: string;
-            };
-          };
-        }
-      ];
     };
   };
 };
@@ -118,7 +86,45 @@ export const IndexPageTemplate = ({
   );
 };
 
-export default function IndexPage({ data }: Props) {
+type Props = {
+  data: {
+    info: {
+      frontmatter: {
+        heading: string;
+        subheading: string;
+        aboutme: string;
+        injuryinfo: string;
+        image1: Image;
+        image2: Image;
+        image3: Image;
+      };
+    };
+    posts: {
+      edges: [
+        {
+          node: {
+            id: string;
+            frontmatter: {
+              date: string;
+              description: string;
+              title: string;
+            };
+            fields: {
+              slug: string;
+            };
+          };
+        }
+      ];
+    };
+  };
+  location: {
+    state: {
+      target?: string;
+    };
+  };
+};
+
+export default function IndexPage({ data, location }: Props) {
   const { info, posts } = data;
   const {
     aboutme,
@@ -128,6 +134,16 @@ export default function IndexPage({ data }: Props) {
     ...imgs
   } = info.frontmatter;
   const helmet = useHelmet();
+
+  // handles scrolling down to the about section
+  useEffect(() => {
+    console.log(location);
+    const id = setTimeout(() => {
+      if (!location.state || !location.state.target) return;
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    }, 250);
+    return () => clearTimeout(id);
+  }, [location.state]);
 
   return (
     <IndexPageTemplate
