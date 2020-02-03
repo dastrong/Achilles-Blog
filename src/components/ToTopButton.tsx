@@ -16,7 +16,7 @@ export default function ToTopButton() {
       className={`totopbutton ${showButton ? 'totopbutton--show' : ''}`}
       onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
     >
-      ^
+      TOP
     </button>
   );
 }
