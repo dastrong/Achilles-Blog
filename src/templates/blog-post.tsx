@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import useHelmet from '../components/useHelmet';
 import { getInjuryDate, getDaysSinceInjury } from '../utils/dates';
+import DayPicker from '../components/DayPicker';
 
 type NextPrevProps = {
   frontmatter: {
@@ -46,26 +47,30 @@ export const BlogPostTemplate = ({
             <p>{new Date(date).toDateString()}</p>
           </div>
           <PostContent content={content} />
-          {/* {(previous || next) && (
+          {(previous || next) && (
             <div className="blogpost__pagination">
-              {previous && (
-                <Link to={previous.fields.slug}>
-                  {`Day ${getDaysSinceInjury(
+              {previous ? (
+                <DayPicker
+                  style={{ position: 'absolute', left: 0 }}
+                  path={previous.fields.slug}
+                  daysSince={getDaysSinceInjury(
                     injuryDate,
                     new Date(previous.frontmatter.date)
-                  )}`}
-                </Link>
-              )}
+                  )}
+                />
+              ) : null}
               {next && (
-                <Link to={next.fields.slug}>
-                  {`Day ${getDaysSinceInjury(
+                <DayPicker
+                  style={{ position: 'absolute', right: 0 }}
+                  path={next.fields.slug}
+                  daysSince={getDaysSinceInjury(
                     injuryDate,
                     new Date(next.frontmatter.date)
-                  )}`}
-                </Link>
+                  )}
+                />
               )}
             </div>
-          )} */}
+          )}
         </div>
       </section>
     </Layout>

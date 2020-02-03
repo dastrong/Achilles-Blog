@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { navigate, Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import Button from './Button';
+import DayPicker from './DayPicker';
 
 type Props = {
   allPosts: {
@@ -42,9 +43,7 @@ export default function PostList({ allPosts }: Props) {
       <h2 className="postlist-daypicker">Go to a day below</h2>
       <div className="postlist-shortcuts">
         {allPosts.map(({ path, daysSince }) => (
-          <Link to={path} key={path}>
-            {daysSince}
-          </Link>
+          <DayPicker path={path} daysSince={daysSince} />
         ))}
       </div>
 

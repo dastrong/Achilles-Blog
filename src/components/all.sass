@@ -83,7 +83,19 @@ p
   font-style: italic
   color: #313131
 
-// ================
+.daypicker-item
+  box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457
+  background-color: #f7eeab
+  height: 40px
+  width: 40px
+  border-radius: 20px
+  color: inherit
+  padding: 10px
+  margin: 5px
+  line-height: 20px
+  text-align: center
+
+  // ================
 // =====Navbar=====
 // ================
 .navbar
@@ -336,17 +348,6 @@ p
     justify-content: center
     align-items: center
     margin: 0px auto 10px
-    a
-      box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457
-      background-color: #f7eeab
-      height: 40px
-      width: 40px
-      border-radius: 20px
-      color: inherit
-      padding: 10px
-      margin: 5px
-      line-height: 20px
-      text-align: center
   .post
     &__container
       cursor: pointer
@@ -494,4 +495,9 @@ p
     p
       font-size: .9rem
       color: #545454
-
+  &__pagination
+    width: 100%
+    margin-top: 15px
+    display: flex
+    position: relative
+    height: 50px

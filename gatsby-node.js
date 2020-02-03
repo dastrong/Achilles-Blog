@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
@@ -8,17 +7,43 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      posts: allMarkdownRemark(
+        sort: { order: ASC, fields: frontmatter___date }
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
         edges {
-          node {
-            id
+          next {
+            frontmatter {
+              date
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
             fields {
               slug
             }
             frontmatter {
-              templateKey
+              date
             }
           }
+          node {
+            frontmatter {
+              templateKey
+            }
+            fields {
+              slug
+            }
+            id
+          }
+        }
+      }
+      index: markdownRemark(
+        frontmatter: { templateKey: { eq: "index-page" } }
+      ) {
+        fields {
+          slug
         }
       }
     }
@@ -29,20 +54,24 @@ exports.createPages = async ({ actions, graphql }) => {
     return Promise.reject(result.errors);
   }
 
-  const posts = result.data.allMarkdownRemark.edges;
-
-  posts.forEach(edge => {
-    const id = edge.node.id;
+  // creates blog posts
+  result.data.posts.edges.forEach(({ node, next, previous }) => {
+    const { id, fields } = node;
     createPage({
-      path: edge.node.fields.slug,
-      component: path.resolve(
-        `src/templates/${String(edge.node.frontmatter.templateKey)}.tsx`
-      ),
-      // additional data can be passed via context
+      path: fields.slug,
+      component: path.resolve(`src/templates/blog-post.tsx`),
       context: {
         id,
+        next,
+        previous,
       },
     });
+  });
+
+  // creates index page
+  createPage({
+    path: result.data.index.fields.slug,
+    component: path.resolve('src/templates/index-page.tsx'),
   });
 };
 
