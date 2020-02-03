@@ -21,13 +21,13 @@ const Footer = () => (
       <SocialLink
         img={facebook}
         name="facebook"
-        url="https://www.instagram.com/fwarrior.135"
+        url="https://www.facebook.com/walter.barrios"
       />
 
       <SocialLink
         img={instagram}
         name="instagram"
-        url="https://www.facebook.com/walter.barrios"
+        url="https://www.instagram.com/fwarrior.135"
       />
     </div>
 
