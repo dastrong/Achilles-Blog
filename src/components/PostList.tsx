@@ -43,7 +43,7 @@ export default function PostList({ allPosts }: Props) {
       <h2 className="postlist-daypicker">Go to a day below</h2>
       <div className="postlist-shortcuts">
         {allPosts.map(({ path, daysSince }) => (
-          <DayPicker path={path} daysSince={daysSince} />
+          <DayPicker key={path} path={path} daysSince={daysSince} />
         ))}
       </div>
 
