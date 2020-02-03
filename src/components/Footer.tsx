@@ -17,9 +17,7 @@ const SocialLink = ({ img, name, url }: SocialTypes) => (
 
 const Footer = () => (
   <footer className="footer">
-    <Link to="/">Home</Link>
-
-    <div className="social-links">
+    <div className="footer__links">
       <SocialLink
         img={facebook}
         name="facebook"
@@ -31,6 +29,14 @@ const Footer = () => (
         name="instagram"
         url="https://www.facebook.com/walter.barrios"
       />
+    </div>
+
+    <div className="footer__links">
+      <Link to="/">Home</Link>
+      <Link to="/" state={{ target: 'about' }}>
+        About Me
+      </Link>
+      <Link to="/blog">Blog</Link>
     </div>
 
     <p>
