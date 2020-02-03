@@ -3,9 +3,8 @@ import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 import Layout from '../components/Layout';
-import PostList from '../components/PostList';
 import useHelmet from '../components/useHelmet';
-import { getDaysSinceInjury, getInjuryDate } from '../utils/dates';
+import BlogRoll from '../components/BlogRoll';
 
 type Image = {
   childImageSharp: {
@@ -34,22 +33,6 @@ export const IndexPageTemplate = ({
   posts,
   helmet,
 }: TemplateProps) => {
-  const injuryDate = getInjuryDate();
-  const allPosts =
-    posts &&
-    posts.edges.map(post => {
-      const dateNow = new Date(post.node.frontmatter.date);
-      const daysSince = getDaysSinceInjury(injuryDate, dateNow);
-      return {
-        daysSince,
-        dateString: dateNow.toDateString(),
-        description: post.node.frontmatter.description,
-        id: post.node.id,
-        path: post.node.fields.slug,
-        title: post.node.frontmatter.title,
-      };
-    });
-
   return (
     <Layout>
       {helmet || ''}
@@ -70,14 +53,9 @@ export const IndexPageTemplate = ({
       </section>
 
       <section className="index-content">
-        <h2 id="posts" className="custom-heading blog-heading">
-          Blog Posts
-        </h2>
-        <p className="custom-heading blog-subheading">{injuryinfo}</p>
+        <BlogRoll posts={posts} injuryinfo={injuryinfo} />
 
-        {posts && <PostList allPosts={allPosts} />}
-
-        <div id="about" className="about-container">
+        <div id="about" className="styled-container">
           <h2 id="about">About Me</h2>
           {aboutme}
         </div>

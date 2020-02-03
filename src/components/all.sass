@@ -54,6 +54,35 @@ p
   font-size: 1rem
   margin-bottom: 10px
 
+.custom-heading
+  text-align: center
+  width: 90%
+  min-width: 300px
+  max-width: 700px
+  margin: 0 auto
+
+.styled-container
+  background-color: #ecebdd
+  width: 90%
+  min-width: 300px
+  max-width: 700px
+  margin: 0px auto
+  border-radius: 30px
+  color: black
+  padding: 30px
+  box-shadow: 0px 1px 3px 0px #acacac
+  margin-bottom: -80px
+
+.blog-heading
+  text-shadow: -1px -1px 3px #8e8e8e, 1px 1px 2px #e9de92
+  font-size: 3.5rem
+
+.blog-subheading
+  text-shadow: 0px 0px 9px #ffffff
+  font-size: 1.1rem
+  font-style: italic
+  color: #313131
+
 // ================
 // =====Navbar=====
 // ================
@@ -198,34 +227,8 @@ p
 .index-content
   background-color: $walt-gray-dark
   padding: 40px 0 50px
-  .custom-heading
+  .styled-container 
     text-align: center
-    width: 90%
-    min-width: 300px
-    max-width: 700px
-    margin: 0 auto
-  .blog-heading
-    text-shadow: -1px -1px 3px #8e8e8e, 1px 1px 2px #e9de92
-    font-size: 3.5rem
-  .blog-subheading
-    text-shadow: 0px 0px 9px #ffffff
-    font-size: 1.1rem
-    font-style: italic
-    color: #313131
-
-  .about-container 
-    text-align: center
-    background-color: #ecebdd
-    width: 90%
-    min-width: 300px
-    max-width: 700px
-    margin: 0px auto
-    border-radius: 30px
-    color: black
-    padding: 30px
-    line-height: 2em
-    box-shadow: 0px 1px 3px 0px #acacac
-    margin-bottom: -80px
     h2
       font-size: 2rem
       margin-bottom: 10px
@@ -357,7 +360,7 @@ p
       align-items: center
       margin: 15px
       & > div
-        background-color: $walt-gray-light
+        background-color: #ecebdd
         color: $walt-black
         box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457        
     &__day
@@ -377,10 +380,12 @@ p
         content: ''
         height: 11px
         width: 10px
-        background-color: $walt-gray-light
+        background-color: #ecebdd
         position: absolute
         transform-origin: top
         transform: translateY(30px)
+        box-shadow: -1px -1px 4px #828180, 1px 1px 1px #8b9457
+        z-index: -1
     &__content
       padding: 25px
       border-radius: 20px
@@ -485,18 +490,6 @@ p
 // ================
 .blogpost
   padding: 40px 0 50px
-  &__container 
-    padding: 20px
-    background-color: #ecebdd
-    width: 90%
-    min-width: 300px
-    max-width: 700px
-    margin: 0px auto
-    border-radius: 30px
-    color: black
-    padding: 30px
-    box-shadow: 0px 1px 3px 0px #acacac
-    margin-bottom: -80px
   &__info
     p
       font-size: .9rem

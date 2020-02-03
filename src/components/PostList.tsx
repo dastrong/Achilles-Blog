@@ -9,7 +9,7 @@ type Props = {
     title: string;
     description: string;
     dateString: string;
-    daysSince: string;
+    daysSince: number;
   }[];
 };
 

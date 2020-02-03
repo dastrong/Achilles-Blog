@@ -40,7 +40,7 @@ export const BlogPostTemplate = ({
     <Layout>
       {helmet || ''}
       <section className="blogpost">
-        <div className="blogpost__container">
+        <div className="styled-container">
           <div className="blogpost__info">
             <h1>{title}</h1>
             <p>{new Date(date).toDateString()}</p>
