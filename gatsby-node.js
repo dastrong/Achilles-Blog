@@ -64,6 +64,7 @@ exports.createPages = async ({ actions, graphql }) => {
         id,
         next,
         previous,
+        slug: fields.slug,
       },
     });
   });

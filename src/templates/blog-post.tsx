@@ -1,10 +1,12 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
+import { graphql } from 'gatsby';
+import { FacebookProvider, Comments } from 'react-facebook';
+
 import Content, { HTMLContent } from '../components/Content';
+import DayPicker from '../components/DayPicker';
+import Layout from '../components/Layout';
 import useHelmet from '../components/useHelmet';
 import { getInjuryDate, getDaysSinceInjury } from '../utils/dates';
-import DayPicker from '../components/DayPicker';
 
 type NextPrevProps = {
   frontmatter: {
@@ -23,6 +25,7 @@ type TemplateProps = {
   helmet?: JSX.Element;
   previous?: NextPrevProps;
   next?: NextPrevProps;
+  slug: string;
 };
 
 export const BlogPostTemplate = ({
@@ -33,6 +36,7 @@ export const BlogPostTemplate = ({
   helmet,
   previous,
   next,
+  slug,
 }: TemplateProps) => {
   const PostContent = contentComponent || Content;
   const injuryDate = getInjuryDate();
@@ -46,7 +50,9 @@ export const BlogPostTemplate = ({
             <h1>{title}</h1>
             <p>{new Date(date).toDateString()}</p>
           </div>
+
           <PostContent content={content} />
+
           {(previous || next) && (
             <div className="blogpost__pagination">
               {previous ? (
@@ -71,6 +77,15 @@ export const BlogPostTemplate = ({
               )}
             </div>
           )}
+
+          {process.env.GATSBY_FACEBOOK_APPID && (
+            <FacebookProvider appId={process.env.GATSBY_FACEBOOK_APPID}>
+              <Comments
+                width="100%"
+                href={`https://achillesrecovery.netlify.com${slug}`}
+              />
+            </FacebookProvider>
+          )}
         </div>
       </section>
     </Layout>
@@ -92,6 +107,7 @@ type Props = {
   pageContext: {
     next: NextPrevProps;
     previous: NextPrevProps;
+    slug: string;
   };
 };
 
@@ -99,7 +115,7 @@ export default function BlogPost({ data, pageContext }: Props) {
   const { html } = data.post;
   const { title, description, date } = data.post.frontmatter;
   const helmet = useHelmet(title, description);
-  const { next, previous } = pageContext;
+  const { next, previous, slug } = pageContext;
 
   return (
     <BlogPostTemplate
@@ -110,6 +126,7 @@ export default function BlogPost({ data, pageContext }: Props) {
       date={date}
       next={next}
       previous={previous}
+      slug={slug}
     />
   );
 }
