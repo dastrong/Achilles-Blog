@@ -137,7 +137,6 @@ export default function IndexPage({ data, location }: Props) {
 
   // handles scrolling down to the about section
   useEffect(() => {
-    console.log(location);
     const id = setTimeout(() => {
       if (!location.state || !location.state.target) return;
       document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
