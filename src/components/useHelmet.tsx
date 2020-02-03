@@ -32,6 +32,10 @@ export default function useHelmet(titleArg?: string, descriptionArg?: string) {
       <link rel="mask-icon" href={img} color="#fff3a2" />
 
       <meta name="theme-color" content="#fff3a2" />
+      <meta
+        name="google-site-verification"
+        content="3ZEZ6wLx1CyP4Ys3sg8GBa1k69A-h9WZvdrr9NvTtlw"
+      />
       <meta property="og:type" content="blog" />
       <meta property="og:title" content={title} />
       <meta property="og:url" content="/" />
